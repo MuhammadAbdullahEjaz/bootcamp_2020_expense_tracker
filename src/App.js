@@ -1,25 +1,27 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+
+//Imports
+import { Header } from './components/HeaderComponent';
+import { Balance } from './components/BalanceComponenet';
+import { Summary } from './components/SummaryComponent';
+import { List } from './components/listComponents';
+import { AddTrail } from './components/AddingComponent';
+import { GlobalProvider } from './contex/GlobalState';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GlobalProvider childern={
+      <div className="container">
+        <Header />
+        <Balance />
+        <Summary />
+        <List />
+        <AddTrail />
+      </div>
+    } />
   );
 }
 
